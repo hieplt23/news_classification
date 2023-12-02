@@ -1,0 +1,522 @@
+@keyframes snow {
+  0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+  40% { background-position: 10px 14vmin, -20px 28vmin, 20px 20vmin, 10px 24vmin; }
+  60% { background-position: -10px 21vmin, -30px 42vmin, 30px 30vmin, 15px 36vmin; }
+  100% { background-position: 0 35vmin, 0 70vmin, 0 50vmin, 0 60vmin; }
+}
+
+@keyframes blink {
+  0%, 6%, 100% { height: 12%; }
+  3% { height: 0%; }
+}
+
+@keyframes moveMustache {
+  0%, 40%, 44%, 100% { transform: translate(-100%, 0) rotate(25deg); }
+  42% { transform: translate(-100%, 0) rotate(30deg); }
+}
+
+@keyframes moveMustache2 {
+  0%, 40%, 44%, 100% { transform: rotate(-25deg); }
+  42% { transform: rotate(-30deg); }
+}
+
+@media (prefers-reduced-motion) {
+  * {
+    animation: none !important;
+  }
+}
+
+html {
+  background: #8aa0c5b0;
+  overflow: hidden;
+  background-image:
+    radial-gradient(circle at 50% 50%, white 2.5%, transparent 0),
+    radial-gradient(circle at 30% 90%, white 1.5%, transparent 0),
+    radial-gradient(circle at 70% 10%, white 1%, transparent 0),
+    radial-gradient(circle at 10% 40%, white 1%, transparent 0);
+  background-size: 45vmin 35vmin, 50vmin 70vmin, 60vmin 50vmin, 65vmin 60vmin;
+  background-position: 0 0;
+  animation: snow infinite 7s linear;
+  font-family: system-ui;
+}
+#btn-submit {
+  outline: none;
+  width: 114px;
+  height: 41px;
+  line-height: 46px;
+  background-color: #fff;
+  box-shadow: inset 0 0 0 3px #ffffff;
+  border: 0;
+  border-radius: 40px;
+  color: #888;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  font-size: 14px;
+  transition: width .25s;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+#btn-submit:hover {
+  color: #f12929b0;
+  box-shadow: inset 0 0 0 3px #cea1a1;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.canvas {
+  --skin: #fca;
+  --eyes: #630a;
+  --cheeks: #f001;
+  --beard: #eee;
+  --mustache: #fff;
+  --suit: #a00;
+  --belt: #222;
+  --belt-buckle: gold;
+  width: 45vmin;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 50%;
+  left: 72%;
+  transform: translate(-50%, -50%);
+}
+
+.canvas::before {
+  content: "Build by LT. Hiep";
+  display: block;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  width: 200vmax;
+  height: 200vmax;
+  background: white;
+  transform: translate(-50%, 0) rotate(1deg);
+  border-radius: 100% / 20%;
+}
+
+.head {
+  --positionX: 27%;
+  --positionY: 63%;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  border-radius: 50%;
+  width: 25%;
+  height: 25%;
+  transform: translate(-50%, 0);
+  background: var(--skin);
+}
+
+.eye {
+  position: absolute;
+  top: var(--positionY);
+  left: var(--positionX);
+  width: 12%;
+  height: 12%;
+  background: var(--eyes);
+  border-radius: 50%;
+  animation: blink 5s infinite linear;
+}
+
+.eye + .eye {
+  left: auto;
+  right: var(--positionX);
+}
+
+.cheek {
+  position: absolute;
+  top: calc(var(--positionY) + 7%);
+  left: calc(var(--positionX) - 12%);
+  width: 20%;
+  height: 12%;
+  background: var(--cheeks);
+  border-radius: 50%;
+}
+
+.cheek + .cheek {
+  left: auto;
+  right: calc(var(--positionX) - 12%);
+}
+
+.beard {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 30%;
+  height: 40%;
+  background: var(--beard);
+  transform: translate(-50%, 0);
+  border-radius: 100% / 120% 120% 80% 80%;
+}
+
+.mustache {
+  position: absolute;
+  top: 88%;
+  left: 52%;
+  width: 40%;
+  height: 40%;
+  background: var(--mustache);
+  border-radius: 100% 10% 100% 0;
+  transform-origin: top right;
+  transform: translate(-100%, 0) rotate(25deg);
+  animation: moveMustache 7s infinite linear;
+}
+
+.mustache + .mustache {
+  left: 48%;
+  border-radius: 10% 100% 0 100%;
+  transform-origin: top left;
+  transform: rotate(-25deg);
+  animation: moveMustache2 7s infinite linear;
+}
+
+.hat {
+  position: absolute;
+  width: 98%;
+  height: 80%;
+  background: var(--suit);
+  border-radius: 100% 20% 0 0;
+  top: -40%;
+  left: 50%;
+  transform: translate(-50%, 0) rotate(1deg);
+}
+
+.hat::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -17%;
+  left: -5%;
+  width: 110%;
+  height: 40%;
+  border-radius: 100% / 50%;
+  transform: rotate(-2deg);
+  background: radial-gradient(200% 100% at 50% 100%, #0000 30%, var(--mustache) 31%);
+}
+
+.hat::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -25%;
+  top: -15%;
+  width: 40%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--beard);
+}
+
+.body {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  background: var(--suit);
+  border-radius: 100% / 150% 150% 25% 25%;
+  transform: translate(-50%, 0);
+  background-image:
+    /* buttons */
+    radial-gradient(circle at 50% 36%, var(--belt) 2.75%, #0000 3%),
+    radial-gradient(circle at 50% 48%, var(--belt) 3%, #0000 3.25%),
+    radial-gradient(circle at 50% 60%, var(--belt) 2.75%, #0000 3%),
+    radial-gradient(circle at 50% 90%, var(--belt) 2.25%, #0000 2.5%),
+    /* belt */
+    radial-gradient(circle at 50% -50%, transparent 75%, var(--belt) 75.1% 83%, transparent 83.1%),
+    /* flap */
+    linear-gradient(to right, transparent 42%, white 42.2% 57%, transparent 57.2%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 51% 100%, 50% 96%, 49% 100%, 0% 100%);
+}
+
+.belt {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 23%;
+  height: 15%;
+  background: 
+    linear-gradient(var(--belt-buckle) 0 0) 75% 50% / 25% 12% no-repeat,
+    linear-gradient(var(--belt) 0 0) 50% 50% / 85% 80% no-repeat,
+    var(--belt-buckle);
+}
+
+
+.arms {
+  position: absolute;
+  top: 37%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 65%;
+  height: 40%;
+  background: #a00;
+  border-radius: 100% / 170% 170% 25% 25%;
+  background-image: linear-gradient(transparent 20%, #0003);
+}
+
+.hand {
+  --positionX: 18%;
+  position: absolute;
+  top: 70%;
+  left: var(--positionX);
+  width: 13%;
+  height: 13%;
+  background: var(--belt);
+  border-radius: 50%;
+}
+
+.hand + .hand {
+  left: auto;
+  right: var(--positionX);
+}
+
+.leg {
+  position: absolute;
+  top: 75%;
+  left: 29%;
+  width: 19%;
+  height: 25%;
+  background: var(--suit);
+  transform: skew(2deg);
+  background-image: linear-gradient(#0002, transparent 70%, var(--belt) 0);
+}
+
+.leg + .leg {
+  left: 52%;
+}
+
+.leg::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: -6%;
+  width: 110%;
+  height: 20%;
+  background: black;
+  border-radius: 50% / 100% 100% 0 0;
+}
+
+.leg + .leg::after {
+  left: -4%;
+}
+/* Mouse */
+.glow-point {
+  position: absolute;
+  box-shadow: 0rem 0rem 1.2rem 0.6rem rgb(var(--glow-rgb));
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  font-size: 1rem;
+  animation-duration: 1500ms;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+
+@keyframes fall-1 {
+  0% {
+    transform: translate(0px, 0px) rotateX(45deg) rotateY(30deg) rotateZ(0deg) scale(0.25);
+    opacity: 0;
+  }
+  
+  5% {
+    transform: translate(10px, -10px) rotateX(45deg) rotateY(30deg) rotateZ(0deg) scale(1);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: translate(25px, 200px) rotateX(180deg) rotateY(270deg) rotateZ(90deg) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes fall-2 {
+  0% {
+    transform: translate(0px, 0px) rotateX(-20deg) rotateY(10deg) scale(0.25);
+    opacity: 0;
+  }
+  
+  10% {
+    transform: translate(-10px, -5px) rotateX(-20deg) rotateY(10deg) scale(1);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: translate(-10px, 160px) rotateX(-90deg) rotateY(45deg) scale(0.25);
+    opacity: 0;
+  }
+}
+
+@keyframes fall-3 {
+  0% {
+    transform: translate(0px, 0px) rotateX(0deg) rotateY(45deg) scale(0.5);
+    opacity: 0;
+  }
+  
+  15% {
+    transform: translate(7px, 5px) rotateX(0deg) rotateY(45deg) scale(1);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: translate(20px, 120px) rotateX(-180deg) rotateY(-90deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.text_input{
+	height: 250px;
+	width: 55%;
+  font-weight: 550;
+  color: #be6327;
+	background-color: rgb(255,255,255,0.3);
+    border-radius: 7px;
+    border-color: #64c4da;
+    border-width: medium;
+	font-family: system-ui;
+	padding: 12px;
+	margin-top: 5px;
+	margin-left: 19px;
+}
+#lth{
+	position: absolute;
+	top:0;
+}
+h1 {
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+.neon {
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+}
+.neon2{
+	position: absolute;
+    font-size: 15rem;
+	text-align: center;
+	left: 23%;
+    line-height: 7vh;
+	color: #fcedd8;
+	font-family: 'Niconne', cursive;
+	font-weight: bolder;
+    text-shadow: 4px 4px 0px #eb452b, 
+                  8px 9px 0px #efa032, 
+                  14px 14px 0px #46b59b, 
+                  18px 19px 0px #017e7f, 
+                  23px 24px 0px #052939, 
+                  28px 29px 0px #c11a2b
+}
+body.loading > *:not(#loading) {
+  pointer-events: none;
+  opacity: 0.7;
+}
+#loading, #form_container::after {
+  transition: opacity 0.3s ease;
+}
+.lds-roller {
+  position: fixed;
+  margin: auto;
+  text-align: center;
+  z-index: 1000;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #234f4a;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
