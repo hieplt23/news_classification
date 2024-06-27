@@ -24,8 +24,13 @@ Utilizing 9 Machine Learning Models Currently Considered Most Suitable for the P
 
 ## Training
 
-The training data is split at a ratio of 8 : 2, with feature extraction performed using TFIDF. Below are the results of each model's predictions based on both the training and test sets:
-<img src="demo/loss_accuracy_curves.png" width="800"> 
+The training data is split at a ratio of **8 : 2**, with feature extraction performed using **TFIDF**. Below are the results of each model's predictions based on both the training and test sets:
+
+<img src="demo/output1.png" width="800"> 
+
+**Finally**, here are the results of the 2 standout models after hyperparameter optimization:
+
+<img src="demo/output2.png" width="800"> 
 
 ## Requirements
 
