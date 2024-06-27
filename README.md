@@ -44,4 +44,4 @@ Visualize the predictions by building a simple web app using **Flask**. You can 
 * **scikit-learn**
 * **pandas**
 * **underthesea**
-* **flask**
+* **flask 3.0**
