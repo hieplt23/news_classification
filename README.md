@@ -32,8 +32,16 @@ The training data is split at a ratio of **8 : 2**, with feature extraction perf
 
 <img src="demo/output2.png" width="800"> 
 
+## APP
+
+Visualize the predictions by building a simple web app using **Flask**. You can try out the app by running the **app.py** file or by visiting the link **lethanhhiep.pythonanywhere.com** to experience it!
+
+<img src="demo/app.png" width="800"> 
+
 ## Requirements
 
 * **python 3.10**
 * **scikit-learn**
-* **pandas** 
+* **pandas**
+* **underthesea**
+* **flask**
