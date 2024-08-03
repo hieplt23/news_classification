@@ -4,6 +4,10 @@ from underthesea import word_tokenize
 import string
 import re
 
+# labels of articles
+LABELS = ['Bat dong san', 'Du lich', 'Giai tri', 'Giao duc', 'Goc nhin','Khoa hoc', 
+              'Kinh doanh', 'Phap luat', 'So hoa', 'Suc khoe', 'The gioi', 'The thao', 'Thoi su', 'Xe']
+
 # load vietnamese stopwords
 with open('./vietnamese-stopwords.txt', encoding='utf8') as f:
     stopwords = f.readlines()
@@ -31,9 +35,8 @@ def preprocess_data(data):
     with open("./model/svm_model.pkl", 'rb') as f:
         svm_model = pickle.load(f)
     result = svm_model.predict(X_test)
-    labels = ['Bat dong san', 'Du lich', 'Giai tri', 'Giao duc', 'Goc nhin','Khoa hoc', 
-              'Kinh doanh', 'Phap luat', 'So hoa', 'Suc khoe', 'The gioi', 'The thao', 'Thoi su', 'Xe']
-    return f'Prediction label: {labels[result[0]]}'
+    
+    return f'Prediction label: {LABELS[result[0]]}'
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '@lethanhhiep'
@@ -46,11 +49,12 @@ def index():
 def result():
     if request.method == 'POST':
         to_predict_list = request.form.to_dict()
-        print("___________________")
-        print(to_predict_list)
-        print("___________________")
-        result =preprocess_data(to_predict_list)
+        # print("___________________")
+        # print(to_predict_list)
+        # print("___________________")
+        result = preprocess_data(to_predict_list)
         session['result_data'] = result
+        
         return render_template("index.html", prediction=result)
     
 if __name__ == "__main__":
