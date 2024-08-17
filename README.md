@@ -78,7 +78,7 @@ A Flask-based web application was developed to visualize the predictions.
 <img src="demo/app.png" width="1000" alt="Web Application Interface">
 
 **Try it out:**
-- Run `app.py` locally
+- Run `flask_app.py` locally
 - Visit [lethanhhiep.pythonanywhere.com](https://lethanhhiep.pythonanywhere.com)
 
 ## Requirements
