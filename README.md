@@ -1,47 +1,90 @@
 <p align="center">
- <h1 align="center">Predicting the Genre of Vietnamese Articles</h1>
+ <h1 align="center">Vietnamese News Genre Classifier📰</h1>
 </p>
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Dataset](#dataset)
+- [Categories](#categories)
+- [Methodology](#methodology)
+  - [Trained Models](#trained-models)
+  - [Training Process](#training-process)
+- [Results](#results)
+- [Web Application](#web-application)
+- [Requirements](#requirements)
 
 ## Introduction
 
-Hello, this is a project on predicting the genres of articles in Vietnam by collecting data from what is considered one of the largest and most famous online newspapers in Vietnam, "**vnexpress.net**". After the data is cleaned and features are extracted, it is trained through 9 machine learning models, fine-tuning each hyperparameter to select the optimal model that best suits the problem at hand. Finally, the user's predictions are visualized through a simple web application. 
+This project leverages machine learning to predict article genres from vnexpress.net, a leading Vietnamese news portal. The methodology encompasses data extraction, preprocessing, feature engineering, and model optimization across 9 algorithms. Hyperparameter tuning is employed to identify the most suitable model. The culmination is a web application that visualizes predictions, demonstrating practical application of NLP techniques in content categorization.
 
 ## Dataset
-The dataset consists of articles spanning various fields: travel, health, business, sports, etc. The data is divided into 6 attributes: title, abstract, content, author, date, and label. You can find the data in .csv format in the directory **./data/vnexpress_data.csv**.
 
-## Categories:
-The table below lists all the article genres that I have utilized:
-|               |                    |               |                |
-|---------------|:------------------:|:-------------:|:--------------:|
-|   real_estate |   law              |   travel      |   sports       |
-|   education   |   current_affairs  |   health      | digitalization |
-|   world       |       vehicles     |  business     |                |
-|    science    |   perspective      | entertainment |                |
+The dataset consists of articles spanning various fields and is divided into 6 attributes:
+- Title
+- Abstract
+- Content
+- Author
+- Date
+- Label
 
-## Trained models
+**Location**: `./data/vnexpress_data.csv`
 
-Utilizing 9 Machine Learning Models Currently Considered Most Suitable for the Problem: **LogisticRegression, MultinomialNB, BaggingClassifier, DecisionTreeClassifier, LinearSVC, SGDClassifier, KNeighborsClassifier, RandomForestClassifier, GradientBoostingClassifier.**
+## Categories
 
-## Training
+| News & Current Affairs | Business & Technology | Lifestyle & Entertainment | Education & Thought |
+|------------------------|----------------------|---------------------------|---------------------|
+| World                  | Business             | Travel                    | Education           |
+| Current Affairs        | Real Estate          | Health                    | Science             |
+| Law                    | Digitalization       | Sports                    | Perspective         |
+|                        | Vehicles             | Entertainment             |                     |
 
-The training data is split at a ratio of **8 : 2**, with feature extraction performed using **TFIDF**. Below are the results of each model's predictions based on both the training and test sets:
+## Methodology
 
-<img src="demo/output1.png" width="800"> 
+### Trained Models
 
-**Finally**, here are the results of the 2 standout models after hyperparameter optimization:
+Nine machine learning models were utilized, chosen for their suitability to the problem:
 
-<img src="demo/output2.png" width="800"> 
+1. LogisticRegression
+2. MultinomialNB
+3. BaggingClassifier
+4. DecisionTreeClassifier
+5. LinearSVC
+6. SGDClassifier
+7. KNeighborsClassifier
+8. RandomForestClassifier
+9. GradientBoostingClassifier
 
-## APP
+### Training Process
 
-Visualize the predictions by building a simple web app using **Flask**. You can try out the app by running the **app.py** file or by visiting the link **lethanhhiep.pythonanywhere.com** to experience it!
+- Data split: 80% training, 20% testing
+- Feature extraction: TFIDF
 
-<img src="demo/app.png" width="800"> 
+## Results
+
+### Initial Model Performance
+
+![Model Performance](demo/output1.png)
+
+### Optimized Model Performance
+
+After hyperparameter optimization, the two standout models showed the following results:
+
+![Optimized Model Performance](demo/output2.png)
+
+## Web Application
+
+A Flask-based web application was developed to visualize the predictions.
+
+<img src="demo/app.png" width="1000" alt="Web Application Interface">
+
+**Try it out:**
+- Run `app.py` locally
+- Visit [lethanhhiep.pythonanywhere.com](https://lethanhhiep.pythonanywhere.com)
 
 ## Requirements
 
-* **python 3.10**
-* **scikit-learn**
-* **pandas**
-* **underthesea**
-* **flask 3.0**
+- Python 3.10
+- scikit-learn
+- pandas
+- underthesea
+- Flask 3.0
