@@ -10,9 +10,10 @@
   - [Trained Models](#trained-models)
   - [Training Process](#training-process)
 - [Results](#results)
+  - [Initial Model Performance](#initial-model-performance)
+  - [Optimized Model Performance](#optimized-model-performance)
 - [Web Application](#web-application)
 - [Requirements](#requirements)
-
 ## Introduction
 
 This project leverages machine learning to predict article genres from vnexpress.net, a leading Vietnamese news portal. The methodology encompasses data extraction, preprocessing, feature engineering, and model optimization across 9 algorithms. Hyperparameter tuning is employed to identify the most suitable model. The culmination is a web application that visualizes predictions, demonstrating practical application of NLP techniques in content categorization.
