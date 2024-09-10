@@ -102,8 +102,8 @@ We developed a Flask-based web application to showcase our model's predictions i
 
 - Python 3.10
 - scikit-learn
-- pandas
-- underthesea
+- Pandas
+- Underthesea
 - Flask 3.0
 
 ## 🚀 Getting Started
