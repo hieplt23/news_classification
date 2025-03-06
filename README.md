@@ -41,12 +41,20 @@ Our dataset comprises articles from various fields, structured with 6 key attrib
 
 ## 🏷️ Categories
 
-| News & Current Affairs | Business & Technology | Lifestyle & Entertainment | Education & Thought |
-|------------------------|----------------------|---------------------------|---------------------|
-| World                  | Business             | Travel                    | Education           |
-| Current Affairs        | Real Estate          | Health                    | Science             |
-| Law                    | Digitalization       | Sports                    | Perspective         |
-|                        | Vehicles             | Entertainment             |                     |
+  - World
+  - Current Affairs
+  - Law
+  - Business
+  - Real Estate
+  - Digitalization
+  - Vehicles
+  - Travel
+  - Health
+  - Sports
+  - Entertainment
+  - Education
+  - Science
+  - Perspective
 
 ## 🔬 Methodology
 
